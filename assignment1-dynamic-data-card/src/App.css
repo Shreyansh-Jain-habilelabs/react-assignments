@@ -1,0 +1,22 @@
+.App{
+  background-color: rgb(31, 31, 31);
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 100px;
+
+  width: 100%;
+  min-height: 100vh;
+}
+
+.divBox{
+  flex: 1 1 100px;
+  color: rgb(31, 31, 31);
+  background-color: #FFF;
+  padding: 25px;
+  border-radius: 10px;
+
+  box-shadow: 0 8px 7px 2px rgb(0, 0, 0);
+}
