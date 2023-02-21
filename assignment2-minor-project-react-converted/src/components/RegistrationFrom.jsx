@@ -12,29 +12,29 @@ export default function RegistrationFrom() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (1
-      // registerUser.name.length &&
-      // registerUser.email.length &&
-      // registerUser.password.length &&
-      // registerUser.phoneNum.length &&
-      // // registerUser.securityKey.length &&
-      // registerUser.name.trim() &&
-      // registerUser.email.trim() &&
-      // registerUser.password.trim() &&
-      // registerUser.phoneNum.trim()
+    if (
+      registerUser.name.length &&
+      registerUser.email.length &&
+      registerUser.password.length &&
+      registerUser.phoneNum.length &&
+      // registerUser.securityKey.length &&
+      registerUser.name.trim() &&
+      registerUser.email.trim() &&
+      registerUser.password.trim() &&
+      registerUser.phoneNum.trim()
     ) {
-      if (1
-        // validateName(registerUser.name) &&
-        // validateEmail(registerUser.email) &&
-        // validatePassword(registerUser.password) &&
-        // validatePhone(registerUser.phoneNum) 
-        // // validateSecurityKey(registerUser.securityKey)
+      if (
+        validateName(registerUser.name) &&
+        validateEmail(registerUser.email) &&
+        validatePassword(registerUser.password) &&
+        validatePhone(registerUser.phoneNum) 
+        // validateSecurityKey(registerUser.securityKey)
       ) {
-          // let dataInLocalStorage = localStorage.getItem("registeredUsersData");
-          // dataInLocalStorage = dataInLocalStorage ? JSON.parse(dataInLocalStorage) : [];
-          // dataInLocalStorage.push(registerUser);
-          // localStorage.setItem("registeredUsersData", JSON.stringify(dataInLocalStorage));
-          // alert("Registration Successful");
+          let dataInLocalStorage = localStorage.getItem("registeredUsersData");
+          dataInLocalStorage = dataInLocalStorage ? JSON.parse(dataInLocalStorage) : [];
+          dataInLocalStorage.push(registerUser);
+          localStorage.setItem("registeredUsersData", JSON.stringify(dataInLocalStorage));
+          alert("Registration Successful");
           navigate('/loginForm');
       }
     } else {
