@@ -18,21 +18,25 @@ const details = [
     name: "Abc",
     desc: "my name is abc",
     class: "marhoon"
+  },
+  {
+    name: "XYZ",
+    desc: "my name is xyz",
+    class: "red"
+  },
+  {
+    name: "Tanisha",
+    desc: "my name is tanisha",
+    class: "marhoon"
   }
 ];
-
-const boxes = [];
-
-details.forEach((element) => {
-  boxes.push(<Box name={element.name} desc={element.desc} class={element.class}/>);
-})
 
 function App() {
   return (
     <>
       <Heading/>
       <div className="outerContainer">
-        { boxes }
+        { details.map( element =>  <Box name={element.name} desc={element.desc} class={element.class}/> ) }
       </div>
     </>
   );

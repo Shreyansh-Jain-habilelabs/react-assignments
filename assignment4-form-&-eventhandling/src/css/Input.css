@@ -1,0 +1,15 @@
+.inputDiv{
+  display: flex;
+  flex-direction: column;
+}
+
+label{
+  padding: 20px 0 10px 10px;
+}
+
+input{
+  padding: 10px;
+  border-radius: 10px;
+
+  border: 2px solid rgb(64, 125, 185);
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "firstName",
+    "name": "fname",
+    "type": "text",
+    "labelText": "First Name",
+    "key": 1
+  },
+
+  {
+  "id": "state",
+  "name": "state",
+  "type": "text",
+  "labelText": "State",
+  "key": 2
+  },
+
+  {
+  "id": "male",
+  "name": "gender",
+  "type": "radio",
+  "labelText": "Male",
+  "key": 3
+  },
+
+  {
+  "id": "female",
+  "name": "gender",
+  "type": "radio",
+  "labelText": "Female",
+  "key": 4
+  },
+
+  {
+  "id": "submit",
+  "name": "submit",
+  "type": "submit",
+  "labelText": "",
+  "key": 5
+  }
+  
+]
