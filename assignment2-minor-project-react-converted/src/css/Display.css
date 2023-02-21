@@ -1,0 +1,10 @@
+.containerForm .inputBox input ~ label{
+  transform:translate(7px,-18%);
+  color: #555555a1;
+  background-color: #ffffff;
+  padding: 2px 5px;
+  font-size: 15px;
+}
+input{
+  border: 1.5px solid #555555a1;
+}

@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import "../css/Form.css";
 import { validateName, validateEmail, validatePassword, validatePhone, validateSecurityKey } from "../js/validationFunctions";
-import {generateSecurityKey} from "../js/securityKeyGenerator";
+import GenerateSecurityKey from "../js/securityKeyGenerator";
+import ToggleEyeButton from "../js/toggleEyebutton";
 
 export default function RegistrationFrom() {
 
@@ -11,30 +12,30 @@ export default function RegistrationFrom() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (
-      registerUser.name.length &&
-      registerUser.email.length &&
-      registerUser.password.length &&
-      registerUser.phoneNum.length &&
-      registerUser.securityKey.length &&
-      registerUser.name.trim() &&
-      registerUser.email.trim() &&
-      registerUser.password.trim() &&
-      registerUser.phoneNum.trim()
+    if (1
+      // registerUser.name.length &&
+      // registerUser.email.length &&
+      // registerUser.password.length &&
+      // registerUser.phoneNum.length &&
+      // // registerUser.securityKey.length &&
+      // registerUser.name.trim() &&
+      // registerUser.email.trim() &&
+      // registerUser.password.trim() &&
+      // registerUser.phoneNum.trim()
     ) {
-      if (
-        validateName(registerUser.name) &&
-        validateEmail(registerUser.email) &&
-        validatePassword(registerUser.password) &&
-        validatePhone(registerUser.phoneNum) &&
-        validateSecurityKey(registerUser.securityKey)
+      if (1
+        // validateName(registerUser.name) &&
+        // validateEmail(registerUser.email) &&
+        // validatePassword(registerUser.password) &&
+        // validatePhone(registerUser.phoneNum) 
+        // // validateSecurityKey(registerUser.securityKey)
       ) {
-          let dataInLocalStorage = localStorage.getItem("registeredUsersData");
-          dataInLocalStorage = dataInLocalStorage ? JSON.parse(dataInLocalStorage) : [];
-          dataInLocalStorage.push(registerUser);
-          localStorage.setItem("registeredUsersData", JSON.stringify(dataInLocalStorage));
-          alert("Registration Successful");
-          navigate('/');
+          // let dataInLocalStorage = localStorage.getItem("registeredUsersData");
+          // dataInLocalStorage = dataInLocalStorage ? JSON.parse(dataInLocalStorage) : [];
+          // dataInLocalStorage.push(registerUser);
+          // localStorage.setItem("registeredUsersData", JSON.stringify(dataInLocalStorage));
+          // alert("Registration Successful");
+          navigate('/loginForm');
       }
     } else {
       alert("No field can be empty!");
@@ -45,6 +46,7 @@ export default function RegistrationFrom() {
     const { id, value } = e.target;
     setRegisterUser({ ...registerUser, [id]: value });
   };
+  console.log(registerUser);
 
   return (
     <div className="containerBox">
@@ -67,26 +69,27 @@ export default function RegistrationFrom() {
         <div className="inputBox">
           <input type="text" id="password" required onChange={handleChange} />
           <label htmlFor="password">Password</label>
-          <button id="eyeButton">
+          <button id="eyeButton" onClick={ToggleEyeButton}>
             <ion-icon name="eye-outline"></ion-icon>
           </button>
         </div>
 
         <div className="inputBox" id="securityField">
           <div className="securityKeyBox">
-            <input type="text" id="securityKey" required readOnly />
+            <input type="text" id="securityKey" required readOnly onChange={handleChange}/>
             <label htmlFor="securityKey">Security Key</label>
           </div>
           <div className="securityKeyGeneratorBox">
-            <button>
+            <button onClick={GenerateSecurityKey}>
               <ion-icon name="reload-circle-outline"></ion-icon>
             </button>
           </div>
         </div>
 
         <div className="inputBox">
-          <input type="submit" id="registerButton" value="Register" onClick={generateSecurityKey}/>
+          <input type="submit" id="registerButton" value="Register" />
         </div>
+
       </form>
     </div>
   );

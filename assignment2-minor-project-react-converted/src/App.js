@@ -4,18 +4,18 @@ import "./App.css";
 
 import LoginForm from "./components/LoginForm.jsx";
 import RegistrationFrom from "./components/RegistrationFrom.jsx";
+import UserDetailsDisplay from "./components/UserDetailsDisplay.jsx";
 
 function App() {
   return (
     <>
-      <Router />
-      <Routes />
-      <Route path="/" element={<LoginForm />} />
-      <Route path="registrationFrom" element={<RegistrationFrom />} />
-      {/* <RegistrationFrom /> */}
-      <Routes />/
-      <Router />
-      {/* <RegistrationFrom /> */}
+      <Router>
+        <Routes>
+          <Route path="/" element={<RegistrationFrom />} />
+          <Route path="loginForm" element={<LoginForm />} />
+          <Route path="userDetailsDisplay" element={<UserDetailsDisplay />} />
+        </Routes>
+      </Router>
     </>
   );
 }

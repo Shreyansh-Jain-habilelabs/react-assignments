@@ -95,6 +95,14 @@ input:focus{
   font-size: 15px;
 }
 
+.containerForm .inputBox input#securityKey ~ label{
+  transform:translate(7px,-18%);
+  color: #555555a1;
+  background-color: #ffffff;
+  padding: 2px 5px;
+  font-size: 15px;
+}
+
 input[type="submit"]{
   color: rgb(255, 255, 255);
   text-transform: uppercase;
@@ -120,7 +128,7 @@ input[type="submit"]:active{
   font-size: 1.5rem;
   padding: 16px 0;
   position: absolute;
-  right: 20px;
+  right: 8%;
   top: calc(5%);
   transition: .3s ease-in-out;
 }
@@ -136,7 +144,7 @@ input[type="submit"]:active{
   font-size: 1.5rem;
   padding: 16px 0;
   position: absolute;
-  right: 20px;
+  right: 8%;
   top: calc(5%);
   transition: .3s ease-in-out;
 }

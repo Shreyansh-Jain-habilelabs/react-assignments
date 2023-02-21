@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import "../css/Form.css";
-// import {validatePassword, validateSecurityKey, validateUsername} from '../js/validationFunctions';
+import { validatePassword, validateSecurityKey, validateUsername } from "../js/validationFunctions";
+import ValidateUser from "../js/matchCrudentials";
 
 export default function LoginForm() {
-
+  const navigate = useNavigate();
   const [userLoginData, setUserLoginData] = useState({ username: "", password: "", securityKey: "" });
 
   const handleSubmit = (e) => {
@@ -12,15 +13,27 @@ export default function LoginForm() {
     if (
       userLoginData.username.length &&
       userLoginData.password.length &&
-      userLoginData.securityKey.length 
-      // userLoginData.username.trim() &&
-      // userLoginData.password.trim() &&
+      // userLoginData.securityKey.length
+      userLoginData.username.trim() &&
+      userLoginData.password.trim()
       // userLoginData.securityKey.trim()
     ) {
-      // if (condition) {
-      // }
-      
-    }else{
+      if (
+        validateUsername(userLoginData.username) && 
+        validatePassword(userLoginData.password) 
+        // validateSecurityKey(userLoginData.securityKey)
+      ) {
+        let nowUserLoginData = ValidateUser(userLoginData);
+        if (nowUserLoginData) {
+          alert("Login Successful");
+          localStorage.setItem("nowUserLoginData", JSON.stringify(nowUserLoginData));
+          navigate("/UserDetailsDisplay");
+        } else {
+          alert("User Doesn't exist please register first!");
+          navigate("/");
+        }
+      }
+    } else {
       alert("No field can be empty!");
     }
   };
