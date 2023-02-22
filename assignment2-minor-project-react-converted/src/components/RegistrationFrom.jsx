@@ -2,10 +2,50 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import "../css/Form.css";
 import { validateName, validateEmail, validatePassword, validatePhone, validateSecurityKey } from "../js/validationFunctions";
-import GenerateSecurityKey from "../js/securityKeyGenerator";
 import ToggleEyeButton from "../js/toggleEyebutton";
 
+
 export default function RegistrationFrom() {
+  
+  const generateSecurityKey = (e) => {
+    e.preventDefault();
+
+    let numberCharacters = "1234567890";
+    let specialCharacters = "@#%&*!";
+
+    let code = "";
+    let length = Math.floor(Math.random() * 5) + 6;
+    let presentCodeLength = length;
+
+    for (let i = 0; i < length; i++) {
+      code += numberCharacters.charAt(Math.floor(Math.random() * numberCharacters.length));
+      presentCodeLength--;
+      if (!presentCodeLength) {
+        break;
+      }
+      code += specialCharacters.charAt(Math.floor(Math.random() * specialCharacters.length));
+      presentCodeLength--;
+      if (!presentCodeLength) {
+        break;
+      }
+    }
+
+    // ----------------------------- Mixing the Code -----------------------------
+
+    let arr = code.split("");
+
+    for (let i = 0; i < arr.length; ++i) {
+      let j = Math.floor(Math.random() * arr.length); // Get random of [0, n-1]
+      let temp = arr[i]; // Swap arr[i] and arr[j]
+      arr[i] = arr[j];
+      arr[j] = temp;
+    }
+
+    code = arr.join("");
+
+    setRegisterUser({ ...registerUser, securityKey: code });
+    document.getElementById("securityKey").setAttribute("value", code);
+  }
 
   const navigate = useNavigate();
   const [registerUser, setRegisterUser] = useState({ name: "", email: "", password: "", phoneNum: "", securityKey: "" });
@@ -17,7 +57,7 @@ export default function RegistrationFrom() {
       registerUser.email.length &&
       registerUser.password.length &&
       registerUser.phoneNum.length &&
-      // registerUser.securityKey.length &&
+      registerUser.securityKey.length &&
       registerUser.name.trim() &&
       registerUser.email.trim() &&
       registerUser.password.trim() &&
@@ -27,8 +67,8 @@ export default function RegistrationFrom() {
         validateName(registerUser.name) &&
         validateEmail(registerUser.email) &&
         validatePassword(registerUser.password) &&
-        validatePhone(registerUser.phoneNum) 
-        // validateSecurityKey(registerUser.securityKey)
+        validatePhone(registerUser.phoneNum) &&
+        validateSecurityKey(registerUser.securityKey)
       ) {
           let dataInLocalStorage = localStorage.getItem("registeredUsersData");
           dataInLocalStorage = dataInLocalStorage ? JSON.parse(dataInLocalStorage) : [];
@@ -76,11 +116,11 @@ export default function RegistrationFrom() {
 
         <div className="inputBox" id="securityField">
           <div className="securityKeyBox">
-            <input type="text" id="securityKey" required readOnly onChange={handleChange}/>
+            <input type="text" id="securityKey" required readOnly/>
             <label htmlFor="securityKey">Security Key</label>
           </div>
           <div className="securityKeyGeneratorBox">
-            <button onClick={GenerateSecurityKey}>
+            <button onClick={generateSecurityKey}>
               <ion-icon name="reload-circle-outline"></ion-icon>
             </button>
           </div>

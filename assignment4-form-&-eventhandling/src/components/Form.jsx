@@ -1,9 +1,6 @@
 import React from "react";
-
 import '../css/Form.css';
-
 import Input from './Input';
-
 import data from '../jsonData/data.json';
 
 const Form = () => {
@@ -14,4 +11,4 @@ const Form = () => {
   );
 }
 
-export default Form;
+export default Form 

@@ -13,15 +13,15 @@ export default function LoginForm() {
     if (
       userLoginData.username.length &&
       userLoginData.password.length &&
-      // userLoginData.securityKey.length
+      userLoginData.securityKey.length &&
       userLoginData.username.trim() &&
-      userLoginData.password.trim()
-      // userLoginData.securityKey.trim()
+      userLoginData.password.trim() &&
+      userLoginData.securityKey.trim()
     ) {
       if (
         validateUsername(userLoginData.username) && 
-        validatePassword(userLoginData.password) 
-        // validateSecurityKey(userLoginData.securityKey)
+        validatePassword(userLoginData.password) &&
+        validateSecurityKey(userLoginData.securityKey)
       ) {
         let nowUserLoginData = ValidateUser(userLoginData);
         if (nowUserLoginData) {

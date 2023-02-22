@@ -1,11 +1,17 @@
 import React from "react";
-import '../css/Input.css';
+import "../css/Input.css";
 
 function Input(param) {
-  return(
+  return (
     <div className="inputDiv">
       <label htmlFor={param.id}>{param.labelText}</label>
-      <input id={param.id} type={param.type} name={param.name}/>
+      <input id={param.id} type={param.type} name={param.name} />
+      {/* {param.type === "radio" && 
+      ( <>
+          <label htmlFor={param.id}>{param.labelText}</label>
+          <input id={param.id} type={param.type} name={param.name} />
+        </>
+      )} */}
     </div>
   );
 }
