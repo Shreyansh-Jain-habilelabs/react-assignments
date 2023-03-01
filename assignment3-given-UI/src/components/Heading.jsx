@@ -5,7 +5,7 @@ function Heading() {
   return(
     <div className="heading">
       <h1>Shreyansh Jain</h1>
-    </div>
+    </div>  
   );
 }
 

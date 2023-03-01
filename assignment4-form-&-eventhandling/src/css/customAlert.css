@@ -1,0 +1,55 @@
+.customAlert {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  /* visibility: hidden; */
+
+  background-image: linear-gradient(0deg, rgba(75, 75, 75, 0.5), rgba(75, 75, 75, 0.5));
+}
+
+.myAlert{
+  width: 30%;
+  height: 40vh;
+
+  border-radius: 30px;
+
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 25px rgba(107, 107, 107, 0.445);
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  overflow-wrap: break-word;
+
+}
+
+.myAlert h1 {
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #f23;
+}
+
+.myAlert p {
+  margin: 0 20px;
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+.myAlert button{
+  border: 2px solid #fff;
+  border-radius: 50px;
+  padding: 10px 50px;
+}
+
+.myAlert button:hover{
+  background-color: rgb(201, 201, 201);
+}

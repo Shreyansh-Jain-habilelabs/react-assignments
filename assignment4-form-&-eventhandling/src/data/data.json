@@ -1,0 +1,53 @@
+[
+  {
+    "id": "name",
+    "name": "name",
+    "type": "text",
+    "labelText": "First Name",
+    "onChange":"handleChange",
+    "key": 1
+  },
+
+  {
+    "id": "male",
+    "name": "gender",
+    "type": "radio",
+    "labelText": "Male",
+    "key": 2
+  },
+
+  {
+    "id": "female",
+    "name": "gender",
+    "type": "radio",
+    "labelText": "Female",
+    "key": 3
+  },
+
+  {
+    "id": "state",
+    "name": "state",
+    "type": "text",
+    "labelText": "State",
+    "onChange":"handleChange",
+    "key": 4
+  },
+
+  {
+    "id": "phoneNumber",
+    "name": "phoneNumber",
+    "type": "text",
+    "labelText": "Phone Number",
+    "onChange":"handleChange",
+    "key": 5
+  },
+  
+  {
+    "id": "address",
+    "name": "address",
+    "type": "textarea",
+    "labelText": "Address",
+    "onChange":"handleChange",
+    "key": 6
+  }
+]
