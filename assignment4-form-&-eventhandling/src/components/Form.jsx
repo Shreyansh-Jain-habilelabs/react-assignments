@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
-
-import Input from "./Index.jsx";
+import Input from "./Input.jsx";
 import InputTagsData from "../data/data.json";
-import {validateName, validatePhone, validateState, validateAddress} from '../validations.js';
-
+import { validateName, validatePhone, validateState, validateAddress } from "../validations.js";
 
 import "../css/form.css";
 
@@ -25,7 +23,6 @@ export default function From() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(userInputData);
 
     if (
       "name" in userInputData &&
@@ -39,8 +36,8 @@ export default function From() {
           ...pre,
           name: `Invalid Name !!`,
         }));
-        navigate(`/${error.name}`);
-      } else {  
+        // navigate(`/${error.name}`);
+      } else {
         setError((pre) => ({
           ...pre,
           name: ``,
@@ -52,8 +49,7 @@ export default function From() {
           ...pre,
           phoneNumber: `Invalid Phone Number !!`,
         }));
-        navigate(`/${error.phoneNumber}`);
-
+        // navigate(`/${error.phoneNumber}`);
       } else {
         setError((pre) => ({
           ...pre,
@@ -66,7 +62,7 @@ export default function From() {
           ...pre,
           state: `Invalid State !!`,
         }));
-        navigate(`/${error.state}`);
+        // navigate(`/${error.state}`);
       } else {
         setError((pre) => ({
           ...pre,
@@ -79,7 +75,7 @@ export default function From() {
           ...pre,
           address: `Invalid Address !!`,
         }));
-        navigate(`/${error.address}`);
+        // navigate(`/${error.address}`);
       } else {
         setError((pre) => ({
           ...pre,
@@ -95,7 +91,17 @@ export default function From() {
     <div className="formContainer">
       <form onSubmit={handleSubmit}>
         {InputTagsData.map((value) => (
-          <Input id={value.id} name={value.name} type={value.type} labelText={value.labelText} value={value.val} onchange={handleChange} />
+          <>
+            <Input
+              id={value.id}
+              name={value.name}
+              type={value.type}
+              labelText={value.labelText}
+              onchange={handleChange}
+              error={`${error}.${value.name}`}
+            />
+            <p>{error[`${value.name}`]}</p>
+          </>
         ))}
         <Input id="submit" name="submit" type="submit" />
       </form>

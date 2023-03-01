@@ -1,0 +1,40 @@
+input{
+  width: 95%;
+  padding: 4%;
+  margin: 2%;
+  border-radius: 10px;
+  border: 1px solid #404040;
+}
+
+.inputContainer{
+  position: relative;
+}
+
+label{
+  color: #404040;
+  font-size: .9rem;
+
+  position: absolute;
+  top: 50%;
+  left: 12%;
+  transform: translateY(-50%);
+}
+
+label:hover{
+  cursor: text;
+}
+
+input:not(input[type="radio"]):focus ~ label,
+input:not(input[type="radio"]):valid ~ label{
+  /* color: transparent; */
+  visibility: hidden;
+}
+
+input[type="submit"]:hover{
+  color: #fff;
+  background-color: #022343;
+}
+
+input[type="submit"]:active{
+  transform: translateY(1px);
+}

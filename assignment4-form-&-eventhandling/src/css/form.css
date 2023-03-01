@@ -2,19 +2,13 @@
   background-color: aliceblue;
   border-radius: 20px;
   padding: 3%;
-  
 }
 
-input{
-  width: 95%;
-  padding: 4%;
-  margin: 2%;
-  border-radius: 10px;
-  border: 1px solid #404040;
-  position: relative;
-}
-
-label{
-  position: absolute;
-  top: 0;
+p{
+  font-size: .7rem;
+  font-weight: 600;
+  padding-bottom: 5px;
+  margin-left: 10px;
+  color: rgb(213, 43, 43);
+  text-transform: uppercase;
 }
