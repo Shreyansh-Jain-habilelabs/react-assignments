@@ -7,7 +7,7 @@ export const validateName = (nameEntered) => {
     return false;
   };
 
-  // ----------------------------- Phone Validation -----------------------------9828346181
+  // ----------------------------- Phone Validation -----------------------------
   export const validatePhone = (phoneEntered) => {
     let validRegex = /^([0-9]{10})$/;
     if (phoneEntered.match(validRegex)) {
